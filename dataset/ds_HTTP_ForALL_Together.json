@@ -1,0 +1,39 @@
+{
+	"name": "ds_HTTP_ForALL_Together",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_HTTP_parametrize_AllTogether",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"baseUrl": {
+					"value": "@dataset().baseURL_Param",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"baseURL_Param": {
+				"type": "string"
+			},
+			"relativeURL_Param": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().relativeURL_Param",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

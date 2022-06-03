@@ -1,0 +1,9 @@
+{
+	"name": "covid-reporting-adf-udemy-1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0b4e3c3c-72f0-4fc9-9d89-64ac72e53d84",
+		"tenantId": "a8eec281-aaa3-4dae-ac9b-9a398b9215e7"
+	}
+}
