@@ -1,0 +1,67 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "df_DataLake_country_death",
+						"type": "DatasetReference"
+					},
+					"name": "CasesAndDeathsSource"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "FilterEuOnly"
+				},
+				{
+					"name": "SelectOnlyRequiredFields"
+				},
+				{
+					"name": "PivotCounts"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as integer,",
+				"          indicator as string,",
+				"          daily_count as short,",
+				"          date as date,",
+				"          rate_14_day as double,",
+				"          source as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CasesAndDeathsSource",
+				"CasesAndDeathsSource filter(continent == \"Europe\" && not(isNull(country_code))) ~> FilterEuOnly",
+				"FilterEuOnly select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          source,",
+				"          each(match(name == \"date\"),",
+				"               \"reported_\" + $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> SelectOnlyRequiredFields",
+				"SelectOnlyRequiredFields pivot(groupBy(country,",
+				"          country_code,",
+				"          population,",
+				"          source,",
+				"          reported_date),",
+				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$N_$V',",
+				"     lateral: true) ~> PivotCounts"
+			]
+		}
+	}
+}
