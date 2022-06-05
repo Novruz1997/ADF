@@ -1,5 +1,5 @@
 {
-	"name": "1_pl_DataFlow",
+	"name": "2_pl_DataFlow_HospitalAdmissions",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "1_df_Death_Cases",
+						"referenceName": "2_df_Hospital_Admissions",
 						"type": "DataFlowReference"
 					},
 					"compute": {
