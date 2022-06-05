@@ -1,0 +1,174 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "covid-reporting-adf-udemy-1"
+		},
+		"MessageIfFalse_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'MessageIfFalse'"
+		},
+		"ls_HTTP_parametrize_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_HTTP_parametrize'"
+		},
+		"ls_HTTP_parametrize_AllTogether_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_HTTP_parametrize_AllTogether'"
+		},
+		"ls_HTTP_population_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_HTTP_population'"
+		},
+		"ls_ablob_azurereportingsa_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ablob_azurereportingsa'"
+		},
+		"ls_adls_covidreportingdatalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdatalake'"
+		},
+		"ls_HTTP_parametrize_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_HTTP_parametrize_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "novruz_guliyev"
+		},
+		"ls_HTTP_parametrize_AllTogether_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().baseUrl}"
+		},
+		"ls_HTTP_parametrize_AllTogether_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "novruz_guliyev"
+		},
+		"ls_HTTP_population_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"ls_HTTP_population_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "novruz_guliyev"
+		},
+		"ls_adls_covidreportingdatalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covidreportingdldatalake.dfs.core.windows.net"
+		},
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+			"type": "string",
+			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/country_response.csv"
+		},
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+			"type": "string",
+			"defaultValue": "mp.csv"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/94eadfb8-e8b1-4e57-9ef0-d425ea3abf4f/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsaudemy"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "covid-reporting-adf-udemy-1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"MessageIfFalse_connectionString": {
+						"value": "[parameters('MessageIfFalse_connectionString')]"
+					},
+					"ls_HTTP_parametrize_password": {
+						"value": "[parameters('ls_HTTP_parametrize_password')]"
+					},
+					"ls_HTTP_parametrize_AllTogether_password": {
+						"value": "[parameters('ls_HTTP_parametrize_AllTogether_password')]"
+					},
+					"ls_HTTP_population_password": {
+						"value": "[parameters('ls_HTTP_population_password')]"
+					},
+					"ls_ablob_azurereportingsa_connectionString": {
+						"value": "[parameters('ls_ablob_azurereportingsa_connectionString')]"
+					},
+					"ls_adls_covidreportingdatalake_accountKey": {
+						"value": "[parameters('ls_adls_covidreportingdatalake_accountKey')]"
+					},
+					"ls_HTTP_parametrize_properties_typeProperties_url": {
+						"value": "[parameters('ls_HTTP_parametrize_properties_typeProperties_url')]"
+					},
+					"ls_HTTP_parametrize_properties_typeProperties_userName": {
+						"value": "[parameters('ls_HTTP_parametrize_properties_typeProperties_userName')]"
+					},
+					"ls_HTTP_parametrize_AllTogether_properties_typeProperties_url": {
+						"value": "[parameters('ls_HTTP_parametrize_AllTogether_properties_typeProperties_url')]"
+					},
+					"ls_HTTP_parametrize_AllTogether_properties_typeProperties_userName": {
+						"value": "[parameters('ls_HTTP_parametrize_AllTogether_properties_typeProperties_userName')]"
+					},
+					"ls_HTTP_population_properties_typeProperties_url": {
+						"value": "[parameters('ls_HTTP_population_properties_typeProperties_url')]"
+					},
+					"ls_HTTP_population_properties_typeProperties_userName": {
+						"value": "[parameters('ls_HTTP_population_properties_typeProperties_userName')]"
+					},
+					"ls_adls_covidreportingdatalake_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_covidreportingdatalake_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "covid-reporting-adf-udemy-1_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL')]"
+					},
+					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName')]"
+					},
+					"tr_ingest_population_data_properties_typeProperties_scope": {
+						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'covid-reporting-adf-udemy-1_ArmTemplate_0')]"
+			]
+		}
+	]
+}

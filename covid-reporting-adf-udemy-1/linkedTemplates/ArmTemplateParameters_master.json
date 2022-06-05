@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid-reporting-adf-udemy-1"
+		},
+		"MessageIfFalse_connectionString": {
+			"value": ""
+		},
+		"ls_HTTP_parametrize_password": {
+			"value": ""
+		},
+		"ls_HTTP_parametrize_AllTogether_password": {
+			"value": ""
+		},
+		"ls_HTTP_population_password": {
+			"value": ""
+		},
+		"ls_ablob_azurereportingsa_connectionString": {
+			"value": ""
+		},
+		"ls_adls_covidreportingdatalake_accountKey": {
+			"value": ""
+		},
+		"ls_HTTP_parametrize_properties_typeProperties_url": {
+			"value": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_HTTP_parametrize_properties_typeProperties_userName": {
+			"value": "novruz_guliyev"
+		},
+		"ls_HTTP_parametrize_AllTogether_properties_typeProperties_url": {
+			"value": "@{linkedService().baseUrl}"
+		},
+		"ls_HTTP_parametrize_AllTogether_properties_typeProperties_userName": {
+			"value": "novruz_guliyev"
+		},
+		"ls_HTTP_population_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_HTTP_population_properties_typeProperties_userName": {
+			"value": "novruz_guliyev"
+		},
+		"ls_adls_covidreportingdatalake_properties_typeProperties_url": {
+			"value": "https://covidreportingdldatalake.dfs.core.windows.net"
+		},
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+			"value": "cloudboxacademy/covid19/main/ecdc_data/country_response.csv"
+		},
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+			"value": "mp.csv"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/94eadfb8-e8b1-4e57-9ef0-d425ea3abf4f/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsaudemy"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
