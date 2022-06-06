@@ -2125,11 +2125,13 @@
 						"     skipDuplicateMapOutputs: true) ~> SelectForSink",
 						"SelectForSink sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['cases_and_deaths.csv'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> CasesAndDeathsToSink"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> CasesAndDeathsToSink"
 					]
 				}
 			},
@@ -2361,18 +2363,22 @@
 						"     skipDuplicateMapOutputs: true) ~> selectColumnSink",
 						"SelectColumnsSink sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['weekly_hospital_admissions.csv'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> SinkWeekly",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> SinkWeekly",
 						"selectColumnSink sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['daily_hospital_admissions.csv'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> SinkDaily"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> SinkDaily"
 					]
 				}
 			},
