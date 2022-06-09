@@ -59,11 +59,11 @@
 			"type": "string",
 			"defaultValue": "https://covidreportingdldatalake.dfs.core.windows.net"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL": {
 			"type": "string",
 			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/country_response.csv"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName": {
 			"type": "string",
 			"defaultValue": "mp.csv"
 		},
@@ -155,11 +155,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
-						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL')]"
+					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL": {
+						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL')]"
 					},
-					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
-						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName')]"
+					"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName": {
+						"value": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName')]"
 					},
 					"tr_ingest_population_data_properties_typeProperties_scope": {
 						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"

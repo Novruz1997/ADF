@@ -44,10 +44,10 @@
 		"ls_adls_covidreportingdatalake_properties_typeProperties_url": {
 			"value": "https://covidreportingdldatalake.dfs.core.windows.net"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL": {
 			"value": "cloudboxacademy/covid19/main/ecdc_data/country_response.csv"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName": {
 			"value": "mp.csv"
 		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {

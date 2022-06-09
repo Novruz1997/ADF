@@ -59,11 +59,11 @@
 			"type": "string",
 			"defaultValue": "https://covidreportingdldatalake.dfs.core.windows.net"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL": {
 			"type": "string",
 			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/country_response.csv"
 		},
-		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName": {
+		"t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName": {
 			"type": "string",
 			"defaultValue": "mp.csv"
 		},
@@ -288,7 +288,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ALL_Files_Together')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ALL_Files_Together_7')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -435,7 +435,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Parametrized_Source_URL')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Parametrized_Source_URL_6')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -538,7 +538,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_pop_column_check')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_pop_column_check_3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -736,7 +736,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP_2')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -815,7 +815,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP_parametrize')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP_parametrize_4')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -914,7 +914,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP_parametrize_trigger')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1011,7 +1011,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_population_data')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_population_data_1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1958,12 +1958,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pl_ingest_populationCSV_fromHTTP_parametrize_trigger",
+							"referenceName": "pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"sourceRelativeURL": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sourceRelativeURL')]",
-							"sinkFileName": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_parameters_sinkFileName')]"
+							"sourceRelativeURL": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sourceRelativeURL')]",
+							"sinkFileName": "[parameters('t2_properties_pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5_parameters_sinkFileName')]"
 						}
 					}
 				],
@@ -1978,7 +1978,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_ingest_populationCSV_fromHTTP_parametrize_trigger')]"
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5')]"
 			]
 		},
 		{
@@ -1991,7 +1991,7 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pl_ingest_pop_column_check",
+							"referenceName": "pl_ingest_pop_column_check_3",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -2008,7 +2008,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_ingest_pop_column_check')]"
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_pop_column_check_3')]"
 			]
 		},
 		{
