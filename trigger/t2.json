@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_ingest_populationCSV_fromHTTP_parametrize_trigger",
+					"referenceName": "pl_ingest_populationCSV_fromHTTP_parametrize_trigger_5",
 					"type": "PipelineReference"
 				},
 				"parameters": {

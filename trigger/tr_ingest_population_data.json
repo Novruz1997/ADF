@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_ingest_pop_column_check",
+					"referenceName": "pl_ingest_pop_column_check_3",
 					"type": "PipelineReference"
 				}
 			}
