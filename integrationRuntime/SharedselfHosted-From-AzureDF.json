@@ -1,0 +1,12 @@
+{
+	"name": "SharedselfHosted-From-AzureDF",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/94eadfb8-e8b1-4e57-9ef0-d425ea3abf4f/resourcegroups/AzureDataFactory2/providers/Microsoft.DataFactory/factories/AzureDataFactory-Udemy-2/integrationruntimes/SelfHostedintegrationRuntime1",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
